@@ -35,4 +35,8 @@ app.use("/", authRoutes);
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
+//To display images in hbs
+/*const imagesDisplay = require("./routes/index");
+app.use(express.static("public/images"), imagesDisplay);*/
+
 module.exports = app;

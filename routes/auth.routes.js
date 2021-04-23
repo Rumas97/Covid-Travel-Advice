@@ -61,4 +61,9 @@ router.post("/auth/login", (req, res, next) => {
     });
 });
 
+//CREATED JUST TO CHECK IF THE PAGE LOOKS GOOD
+router.get("/info-success", (req, res, next) => {
+  res.render("info-success.hbs");
+});
+
 module.exports = router;
