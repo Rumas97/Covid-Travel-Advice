@@ -44,68 +44,137 @@ Homepage
 
 ## ROUTES:
 
-- GET /
-  - renders the homepage
-- GET /auth/signup
+\*For Log in as user and admin: we will render the same page, just different button, depending on which link you click on tha mainpage.
+
+**index.js**
+
+- GET / (Homepage)
+  - renders /index.hbs the homepage
+
+**auth.routes.js**
+
+- GET /auth/main (SignUp/LogIn MainPage)
+
   - redirects to / if user logged in
-  - renders the signup form (with flash msg)
+  - renders the /main-page.hbs (to log in or sign up)
+
+- GET /auth/signup (sign up page)
+
+  - renders the /signup-form.hbs
+  - redirects to /signup-successfully if user signed up correctly
+  - renders /signup-success.hbs
+
 - POST /auth/signup
-  - redirects to / if user logged in
+
+  - redirects to /signup-successfully if user signed up correctly
   - body:
     - username
-    - email
+    - email address
     - password
-- GET /auth/login
-  - redirects to / if user logged in
-  - renders the login form (with flash msg)
-- POST /auth/login
-  - redirects to / if user logged in
+
+- GET /auth/login (login page)
+
+  - redirects to /homepage or /create-information
+  - renders the /login-form.hbs
+  - if log in as admin, you go to the /verify-entries.hbs page
+
+- POST /auth/login --> ASK LUIS: should we put the admin and user on the same POST?
+
+  - redirects to /homepage or /create-information
   - body:
     - username
     - password
+
 - POST /auth/logout
 
   - body: (empty)
 
-- GET /events
-  - renders the event list + the create form
-- POST /events/create
-  - redirects to / if user is anonymous
+- GET /profile/:userId
+
+  - renders the /user-profile.hbs page
+
+- POST /profile/:userId
+
+  - params:
+    - id
   - body:
-    - name
-    - date
-    - location
-    - description
-- GET /events/:id
-  - renders the event detail page
-  - includes the list of attendees
-  - attend button if user not attending yet
-- POST /events/:id/attend
-  - redirects to / if user is anonymous
-  - body: (empty - the user is already stored in the session)
+    - username
+    - email address
+    - edit profile button
+    - profile picture _BackLog_
+
+- GET /profile/:userId/edit
+
+  - renders the /edit-profile.hbs page
+
+- POST /profile/:userId/edit
+
+  - params:
+    - id
+  - body:
+    - username
+    - email address
+  - renders the /user-profile.hbs
+
+- GET /user-entries
+
+  - renders /verify-entries.hbs
+
+- POST /user-entries/:id/delete ASK LUIS --> What's up with Verify? How do we do it?
+  - params:
+    - id
+  - redirects to /verify-entries.hbs
+
+**covid-info.routes.js** (Shows info for a single country page)
+
+- GET /travel-restrictions/:country
+
+  - renders the /country-info.hbs
+  - includes the travel covid info for a country
+  - includes the filter thing ASK LUIS --> If we need to put a POST route for Filtering
+  - Displays the user name for each info entry. (.populate())
+  - Includes status: pending or verifying
+
+- GET /add-information
+
+  - renders the /add-info-form.hbs
+
+- POST /add-information
+  - body:
+    - travelling from
+    - travelling to
+    - quarantine required
+    - covid test
+    - current date
+    - share your experience
+  - redirects to /entry-success.hbs
 
 ## Models
 
 1. User Model
 
-- Username
-- Email address
-- Password
+- Username: String
+- Email address: String
+- Password: String
 
 2. Admin Model
 
-- Username
-- Password
+- Username: String
+- Password: String
 
 3. Info Model
 
-- Status
-- Type of Covid test: PCR, LAMP,
-- Current date
-- Travelling to
-- Travelling from
-- Quarantine thing
-- Status -- WE ARE NOT SURE IN WHICH MODEL IT COULD GO
+- Status: String
+- Type of Covid test: PCR, LAMP,: String
+- Current date: Number
+- Travelling to: String
+- Travelling from: String
+- Quarantine thing: String
+- Status -- WE ARE NOT SURE IN WHICH MODEL IT COULD GO: String
+- UserId: {
+  type: Schema.Types.ObjectId,
+  ref: "User"
+  }
 
 ## Links
 
