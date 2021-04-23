@@ -58,13 +58,13 @@ Homepage
   - redirects to / if user logged in
   - renders the /main-page.hbs (to log in or sign up)
 
-- GET /auth/signup (sign up page)
+- GET /auth/signup (sign up page) - **DONE**
 
   - renders the /signup-form.hbs
   - redirects to /signup-successfully if user signed up correctly
   - renders /signup-success.hbs
 
-- POST /auth/signup
+- POST /auth/signup **DONE**
 
   - redirects to /signup-successfully if user signed up correctly
   - body:
@@ -72,13 +72,13 @@ Homepage
     - email address
     - password
 
-- GET /auth/login (login page)
+- GET /auth/login (login page) **DONE**
 
   - redirects to /homepage or /create-information
   - renders the /login-form.hbs
   - if log in as admin, you go to the /verify-entries.hbs page
 
-- POST /auth/login --> ASK LUIS: should we put the admin and user on the same POST?
+- POST /auth/login --> ASK LUIS: should we put the admin and user on the same POST? WE NEED ANOTHER GET ANOTHER POST FOR LOGIN AS ADMIN **DONE**
 
   - redirects to /homepage or /create-information
   - body:
@@ -120,10 +120,16 @@ Homepage
 
   - renders /verify-entries.hbs
 
-- POST /user-entries/:id/delete ASK LUIS --> What's up with Verify? How do we do it?
+- POST /user-entries/:id/delete
+
   - params:
     - id
   - redirects to /verify-entries.hbs
+
+- POST /user-entries/:id/verify //Use method findByIdAndUpdate()
+  - params:
+    - id
+  - redirects to /verify-entries.hbs REDIRECT TO THE ROUTES NOT THE HB FILES
 
 **covid-info.routes.js** (Shows info for a single country page)
 
@@ -132,14 +138,21 @@ Homepage
   - renders the /country-info.hbs
   - includes the travel covid info for a country
   - includes the filter thing ASK LUIS --> If we need to put a POST route for Filtering
+    //WAYS OF DOING THIS:
+
+    1. When we apply filter. We are just fechting information. It could be a POST request
+
+       - Render the view only with the things that we apply the filter for.
+       - find
+
   - Displays the user name for each info entry. (.populate())
   - Includes status: pending or verifying
 
-- GET /add-information
+- GET /add-information // AUTHORIZE
 
   - renders the /add-info-form.hbs
 
-- POST /add-information
+- POST /add-information // AUTHORIZE
   - body:
     - travelling from
     - travelling to
@@ -164,13 +177,12 @@ Homepage
 
 3. Info Model
 
-- Status: String
+- Status: String // Boolean or Enum
 - Type of Covid test: PCR, LAMP,: String
 - Current date: Number
 - Travelling to: String
 - Travelling from: String
 - Quarantine thing: String
-- Status -- WE ARE NOT SURE IN WHICH MODEL IT COULD GO: String
 - UserId: {
   type: Schema.Types.ObjectId,
   ref: "User"
@@ -180,7 +192,7 @@ Homepage
 
 ### Trello
 
-[Link to your trello board](https://trello.com/b/H1ZRgHKI/sovid)
+[Link to our Trello board](https://trello.com/b/H1ZRgHKI/sovid)
 
 ### Git
 
