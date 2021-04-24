@@ -10,6 +10,6 @@ const adminSchema = new Schema({
   email: String,
 });
 
-const Admin = model("Admin", adminSchema);
+const Admin = model("MyAdmin", adminSchema);
 
 module.exports = Admin;

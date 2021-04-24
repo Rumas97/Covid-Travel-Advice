@@ -13,4 +13,6 @@ AdminModel.create(admins)
     console.log("seeds working");
     mongoose.connection.close();
   })
-  .catch(() => {});
+  .catch((err) => {
+    console.log("ERROR", err);
+  });
