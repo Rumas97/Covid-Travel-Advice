@@ -1,7 +1,7 @@
 /* Add these styles to your publc/stylesheets/style.css file */
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px Helvetica, Arial, sans-serif;
   background-size: 100%;
 }
 
@@ -11,15 +11,18 @@ h3 {
   text-align: center;
 }
 
-.firstBlock {
-  display: flex;
-  justify-content: center;
-}
-
 a {
-  color: #00b7ff;
+  color: #45bbc6;
   text-decoration: none;
   font-size: 1.5em;
+  white-space: nowrap;
+  padding-top: 0.3125rem;
+  padding-bottom: 0.3125rem;
+  margin-right: 1rem;
+}
+
+a:hover {
+  color: #ffba49;
 }
 
 form {

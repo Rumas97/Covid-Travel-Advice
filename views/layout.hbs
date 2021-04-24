@@ -11,20 +11,50 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css">
   </head>
 
   <body>
     <header>
-      <nav>
-        <a href="/">HOME</a>
-        <a href="">ABOUT</a>
-        <a href="">CONTACT</a>
-        <a href="">ADD INFORMATION OF A COUNTRY</a>
-        <a href="/auth/signup">SIGN UP</a>
-        <a href="/auth/login">LOG IN</a>
-      </nav>
+      <div>
+        <nav>
+          <a href="/">HOME</a>
+          <a href="/about-us">ABOUT</a>
+          <a href="/contact">CONTACT</a>
+          <a href="/add-information">ADD INFORMATION OF A COUNTRY</a>
+          <a href="/auth/signup">SIGN UP</a>
+          <a href="/auth/login">LOG IN</a>
+        </nav>
+      </div>
     </header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a  href="/">HOME</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a  href="/about-us">ABOUT</a>
+            <a  href="/add-information"
+              >ADD INFORMATION OF A COUNTRY</a
+            >
+            <a  href="/auth/signup">SIGN UP</a>
+            <a  href="/auth/login">LOG IN</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br />
 
     {{{body}}}
 

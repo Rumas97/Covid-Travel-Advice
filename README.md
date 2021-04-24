@@ -78,7 +78,7 @@ Homepage
   - renders the /login-form.hbs
   - if log in as admin, you go to the /verify-entries.hbs page
 
-- POST /auth/login --> ASK LUIS: should we put the admin and user on the same POST? WE NEED ANOTHER GET ANOTHER POST FOR LOGIN AS ADMIN **DONE**
+- POST /auth/login WE NEED ANOTHER GET ANOTHER POST FOR LOGIN AS ADMIN **DONE**
 
   - redirects to /homepage or /create-information
   - body:
@@ -148,7 +148,7 @@ Homepage
   - Displays the user name for each info entry. (.populate())
   - Includes status: pending or verifying
 
-- GET /add-information // AUTHORIZE
+- GET /add-information // AUTHORIZE **DONE**
 
   - renders the /add-info-form.hbs
 
@@ -164,7 +164,7 @@ Homepage
 
 ## Models
 
-1. User Model
+1. User Model **DONE**
 
 - Username: String
 - Email address: String
@@ -175,7 +175,7 @@ Homepage
 - Username: String
 - Password: String
 
-3. Info Model
+3. Info Model **DONE**
 
 - Status: String // Boolean or Enum
 - Type of Covid test: PCR, LAMP,: String
