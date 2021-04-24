@@ -10,7 +10,7 @@ const infoModelSchema = new Schema({
     ref: "User",
   },
 
-  CurrentDate: {
+  currentDate: {
     type: Date,
     default: Date.now,
   },
