@@ -3,6 +3,7 @@
 //3. Import the route
 
 const UserModel = require("../models/User.model");
+const AdminModel = require("../models/Admin.model");
 const bcrypt = require("bcryptjs");
 
 const router = require("express").Router();
@@ -61,9 +62,18 @@ router.post("/auth/login", (req, res, next) => {
     });
 });
 
-//CREATED JUST TO CHECK IF THE PAGE LOOKS GOOD
-router.get("/info-success", (req, res, next) => {
-  res.render("info-success.hbs");
+//---GET AND POST ROUTES FOR ADMIN LOGIN--//
+
+router.get("/auth/login-admin", (req, res, next) => {
+  res.render("login-form-admin.hbs");
+});
+
+router.post("/auth/login-admin", (req, res, next) => {
+  const { username, password } = req.body;
+
+  AdminModel.findOne({ username })
+    .then((response) => {})
+    .catch(() => {});
 });
 
 module.exports = router;
