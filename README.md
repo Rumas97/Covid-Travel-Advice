@@ -188,6 +188,10 @@ Homepage
   ref: "User"
   }
 
+##Seeds
+
+- Admin.seeds.js
+
 ## Links
 
 ### Trello

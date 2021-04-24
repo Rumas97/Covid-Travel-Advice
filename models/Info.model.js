@@ -3,7 +3,8 @@ const { Schema, model } = require("mongoose");
 const infoModelSchema = new Schema({
   travellingTo: String,
   travellingFrom: String,
-  Quarantine: String,
+  quarantine: String,
+  experience: String,
 
   userId: {
     type: Schema.Types.ObjectId,
@@ -12,17 +13,17 @@ const infoModelSchema = new Schema({
 
   currentDate: {
     type: Date,
-    default: Date.now,
+    // default: Date.now,
   },
 
   covidTest: {
     type: String,
-    enum: ["PCR, AntiGen, RT-LAMP, TMA"],
+    enum: ["PCR", "AntiGen", "RT-LAMP", "TMA"],
   },
 
   status: {
     type: String,
-    enum: ["verified, pending"],
+    enum: ["verified", "pending"],
   },
 });
 

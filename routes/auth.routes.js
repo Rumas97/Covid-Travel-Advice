@@ -5,6 +5,7 @@
 const UserModel = require("../models/User.model");
 const AdminModel = require("../models/Admin.model");
 const bcrypt = require("bcryptjs");
+// let userInfo = {};
 
 const router = require("express").Router();
 
@@ -47,7 +48,8 @@ router.post("/auth/login", (req, res, next) => {
       } else {
         bcrypt.compare(password, response.password).then((isMatching) => {
           if (isMatching) {
-            res.redirect("/create-information");
+            // req.session.userInfo = response;
+            res.redirect("/add-information");
           } else {
             res.render("login-form.hbs", {
               msg: "hey, email or password seems to be wrong",
@@ -72,8 +74,26 @@ router.post("/auth/login-admin", (req, res, next) => {
   const { username, password } = req.body;
 
   AdminModel.findOne({ username })
-    .then((response) => {})
-    .catch(() => {});
+    .then((response) => {
+      if (!response) {
+        res.render("login-form-admin.hbs", {
+          msg: "hey, email or password seems to be wrong",
+        });
+      } else {
+        bcrypt.compare(password, response.password).then((isMatching) => {
+          if (isMatching) {
+            res.redirect("/user-entries");
+          } else {
+            res.render("login-form-admin.hbs", {
+              msg: "hey, email or password seems to be wrong",
+            });
+          }
+        });
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 module.exports = router;

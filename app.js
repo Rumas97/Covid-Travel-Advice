@@ -35,6 +35,9 @@ app.use("/", authRoutes);
 const infoRoutes = require("./routes/covid-info.routes");
 app.use("/", infoRoutes);
 
+const adminRoutes = require("./routes/user-entry-verify.routes");
+app.use("/", adminRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
