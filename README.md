@@ -44,11 +44,9 @@ Homepage
 
 ## ROUTES:
 
-\*For Log in as user and admin: we will render the same page, just different button, depending on which link you click on tha mainpage.
-
 **index.js**
 
-- GET / (Homepage)
+- GET / (Homepage) **DONE**
   - renders /index.hbs the homepage
 
 **auth.routes.js**
@@ -89,31 +87,22 @@ Homepage
 
   - body: (empty)
 
-- GET /profile/:userId
+- GET /profile/:id **DONE**
 
   - renders the /user-profile.hbs page
 
-- POST /profile/:userId
-
-  - params:
-    - id
-  - body:
-    - username
-    - email address
-    - edit profile button
-    - profile picture _BackLog_
-
-- GET /profile/:userId/edit
+- GET /profile/:id/edit **DONE**
 
   - renders the /edit-profile.hbs page
 
-- POST /profile/:userId/edit
+- POST /profile/:id/edit
 
   - params:
     - id
   - body:
     - username
     - email address
+    - profile picture as backlog
   - renders the /user-profile.hbs
 
 - GET /user-entries
@@ -140,7 +129,7 @@ Homepage
   - includes the filter thing ASK LUIS --> If we need to put a POST route for Filtering
     //WAYS OF DOING THIS:
 
-    1. When we apply filter. We are just fechting information. It could be a POST request
+    1. When we apply filter. We are just fetching information. It could be a POST request
 
        - Render the view only with the things that we apply the filter for.
        - find
@@ -152,7 +141,7 @@ Homepage
 
   - renders the /add-info-form.hbs
 
-- POST /add-information // AUTHORIZE
+- POST /add-information // AUTHORIZE **DONE**
   - body:
     - travelling from
     - travelling to

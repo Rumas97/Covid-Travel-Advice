@@ -48,7 +48,7 @@ router.post("/auth/login", (req, res, next) => {
       } else {
         bcrypt.compare(password, response.password).then((isMatching) => {
           if (isMatching) {
-            // req.session.userInfo = response;
+            req.session.userInfo = response;
             res.redirect("/add-information");
           } else {
             res.render("login-form.hbs", {
