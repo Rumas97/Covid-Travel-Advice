@@ -36,7 +36,26 @@ router.post("/profile/:id/edit", (req, res, next) => {
   userModel
     .findByIdAndUpdate(id, { username, email })
     .then((data) => {
-      res.redirect("/profile"), { data };
+      console.log(" profile its working");
+      router.get("/profile/:id");
+      userModel
+        .findById(id)
+        .then((data) => {
+          res.render("user-profile.hbs", { data });
+        })
+
+        .catch(() => {});
+    })
+
+    .catch(() => {});
+});
+
+router.post("/profile/:id/delete", (req, res, next) => {
+  const { id } = req.params;
+  userModel
+    .findByIdAndDelete(id)
+    .then((data) => {
+      res.redirect("/profile-deleted-correctly");
     })
 
     .catch(() => {});

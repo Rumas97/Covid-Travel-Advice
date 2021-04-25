@@ -95,7 +95,7 @@ Homepage
 
   - renders the /edit-profile.hbs page
 
-- POST /profile/:id/edit
+- POST /profile/:id/edit **DONE**
 
   - params:
     - id
@@ -109,7 +109,7 @@ Homepage
 
   - renders /verify-entries.hbs
 
-- POST /user-entries/:id/delete
+- POST /user-entries/:id/delete **Done**
 
   - params:
     - id
