@@ -26,15 +26,29 @@ router.post("/add-information", authorize, (req, res, next) => {
     quarantine,
     experience,
     covidTest,
+    currentDate,
   } = req.body;
   infoModel
-    .create({ travellingTo, travellingFrom, quarantine, experience, covidTest })
+    .create({
+      travellingTo,
+      travellingFrom,
+      quarantine,
+      experience,
+      covidTest,
+      currentDate,
+    })
     .then(() => {
       res.redirect("/entry-success");
     })
     .catch((err) => {
       console.log(err);
     });
+});
+
+//Display entry information
+
+router.get("/entry-success", (req, res, next) => {
+  res.render("info-success.hbs");
 });
 
 module.exports = router;

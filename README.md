@@ -109,7 +109,7 @@ Homepage
 
   - renders /verify-entries.hbs
 
-- POST /user-entries/:id/delete **Done**
+- POST /user-entries/:id/delete
 
   - params:
     - id
