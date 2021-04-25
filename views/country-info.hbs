@@ -1,24 +1,21 @@
 <h1>COVID RESTRICTIONS IN GERMANY</h1>
 
-
+<ul>
 {{#each allEntries }}
 
-status {{this.status}}
+<li>Status: {{this.status}}</li>
 
+<li>Date: {{this.currentDate}}</li>
 
-Date {{this.currentDate}} 
+<li>Travelling To: {{this.travellingTo}}</li>
 
-Travelling To {{this.travellingTo}}
+<li>Travelling From: {{this.travellingFrom}}</li>
 
-Travelling From {{this.travellingFrom}}
+<li>Quarantine: {{this.quarantine}}</li>
 
-Quarantine {{this.quarantine}}
+<li>COVID test: {{this.covidTest}}</li>
 
-COVID test {{this.covidTest}}
-
-Experience {{this.experience}}
-
-
-
+<li>Experience: {{this.experience}}</li>
 
 {{/each}}
+</ul>

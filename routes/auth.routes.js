@@ -30,6 +30,12 @@ router.post("/auth/signup", (req, res, next) => {
     });
 });
 
+//Display signup success page
+
+router.get("/signup-success", (req, res, next) => {
+  res.render("signup-success.hbs");
+});
+
 //----GET AND POST FOR LOGIN FOR USER----//
 
 router.get("/auth/login", (req, res, next) => {
@@ -102,6 +108,12 @@ router.get("/logout", (req, res, next) => {
 
   req.session.destroy();
   res.redirect("/");
+});
+
+//GET ROUTE FOR SHOWING THE MAIN PAGE
+
+router.get("/main", (req, res, next) => {
+  res.render("main-page.hbs");
 });
 
 module.exports = router;

@@ -9,7 +9,7 @@ const authorize = (req, res, next) => {
   if (req.session.userInfo) {
     next();
   } else {
-    res.redirect("/auth/login");
+    res.redirect("/main");
   }
 };
 
