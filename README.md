@@ -105,7 +105,7 @@ Homepage
     - profile picture as backlog
   - renders the /user-profile.hbs
 
-- GET /user-entries
+- GET /user-entries **Done**
 
   - renders /verify-entries.hbs
 
