@@ -22,8 +22,15 @@
           <a href="/about-us">ABOUT</a>
           <a href="/contact">CONTACT</a>
           <a href="/add-information">ADD INFORMATION OF A COUNTRY</a>
+          {{#if isUserLoggedIn }}
+            <a href="/logout">LOG OUT</a>
+           {{else}}
           <a href="/auth/signup">SIGN UP</a>
           <a href="/auth/login">LOG IN</a>
+         
+         {{/if}}
+
+
         </nav>
       </div>
     </header>

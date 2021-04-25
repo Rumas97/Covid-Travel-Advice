@@ -1,0 +1,9 @@
+<h1>EDIT THE STATUS</h1>
+
+<form action="/user-entries/{{data._id}}/verify" method="POST">
+
+  <label for="status">Status</label>
+  <input type="text" name="status" value="{{data.status}}">
+
+  <button type="submit">Button</button>
+</form>

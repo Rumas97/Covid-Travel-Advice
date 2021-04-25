@@ -1,1 +1,30 @@
 <h1>User entry verification</h1>
+
+
+{{#each allEntries }}
+
+status {{this.status}}
+
+
+Date {{this.currentDate}} 
+
+Travelling To {{this.travellingTo}}
+
+Travelling From {{this.travellingFrom}}
+
+Quarantine {{this.quarantine}}
+
+COVID test {{this.covidTest}}
+
+Experience {{this.experience}}
+
+<form action="/user-entries/{{this.id}}/delete" method="POST">
+  <button>Delete</button>
+</form>
+
+<form action="/user-entries/{{this.id}}/verify" method="GET">
+  <button>Edit Status</button>
+</form>
+
+
+{{/each}}

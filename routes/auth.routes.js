@@ -48,7 +48,8 @@ router.post("/auth/login", (req, res, next) => {
       } else {
         bcrypt.compare(password, response.password).then((isMatching) => {
           if (isMatching) {
-            // req.session.userInfo = response;
+            req.app.locals.isUserLoggedIn = true;
+            req.session.userInfo = response;
             res.redirect("/add-information");
           } else {
             res.render("login-form.hbs", {
@@ -94,6 +95,13 @@ router.post("/auth/login-admin", (req, res, next) => {
     .catch((err) => {
       console.log(err);
     });
+});
+
+router.get("/logout", (req, res, next) => {
+  req.app.locals.isUserLoggedIn = false;
+
+  req.session.destroy();
+  res.redirect("/");
 });
 
 module.exports = router;
