@@ -51,4 +51,21 @@ router.get("/entry-success", (req, res, next) => {
   res.render("info-success.hbs");
 });
 
+//Trying to display the status routes
+
+router.get("/travel-restrictions", (req, res, next) => {
+  const {
+    status,
+    travellingTo,
+    travellingFrom,
+    quarantine,
+    experience,
+    covidTest,
+    currentDate,
+  } = req.body;
+  infoModel.find().then((allEntries) => {
+    res.render("country-info.hbs", { allEntries });
+  });
+});
+
 module.exports = router;

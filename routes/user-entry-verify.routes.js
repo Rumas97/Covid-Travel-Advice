@@ -22,9 +22,9 @@ router.post("/user-entries/:id/delete", (req, res, next) => {
     })
 
     .catch(() => {});
-});
+}); //NOT SURE HOW TO DO THE VERIFY IN A DIFFERENT WAY
 
-router.post("/user-entries/:id/verify", (req, res, next) => {
+/*router.post("/user-entries/:id/verify", (req, res, next) => {
   const { id } = req.params;
 
   infoModel
@@ -32,6 +32,29 @@ router.post("/user-entries/:id/verify", (req, res, next) => {
     .then(() => {
       if (status.enum === "pending") {
       }
+    })
+
+    .catch(() => {});
+}); */
+
+router.get("/user-entries/:id/verify", (req, res, next) => {
+  const { id } = req.params;
+  infoModel
+    .findById(id)
+    .then((data) => {
+      res.render("edit-status.hbs", { data });
+    })
+
+    .catch(() => {});
+});
+
+router.post("/user-entries/:id/verify", (req, res, next) => {
+  const { id } = req.params;
+  const { status } = req.body;
+  infoModel
+    .findByIdAndUpdate(id, { status })
+    .then((data) => {
+      res.redirect("/user-entries");
     })
 
     .catch(() => {});

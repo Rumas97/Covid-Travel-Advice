@@ -3,7 +3,7 @@
 
 {{#each allEntries }}
 
-status {{this.status.enum}}
+status {{this.status}}
 
 
 Date {{this.currentDate}} 
@@ -20,6 +20,10 @@ Experience {{this.experience}}
 
 <form action="/user-entries/{{this.id}}/delete" method="POST">
   <button>Delete</button>
+</form>
+
+<form action="/user-entries/{{this.id}}/verify" method="GET">
+  <button>Edit Status</button>
 </form>
 
 

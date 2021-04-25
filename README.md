@@ -83,7 +83,7 @@ Homepage
     - username
     - password
 
-- POST /auth/logout
+- POST /auth/logout **DONE**
 
   - body: (empty)
 
@@ -109,20 +109,20 @@ Homepage
 
   - renders /verify-entries.hbs
 
-- POST /user-entries/:id/delete
+- POST /user-entries/:id/delete **Done**
 
   - params:
     - id
   - redirects to /verify-entries.hbs
 
-- POST /user-entries/:id/verify //Use method findByIdAndUpdate()
+- POST /user-entries/:id/verify //**Done** Use method findByIdAndUpdate()
   - params:
     - id
   - redirects to /verify-entries.hbs REDIRECT TO THE ROUTES NOT THE HB FILES
 
 **covid-info.routes.js** (Shows info for a single country page)
 
-- GET /travel-restrictions/:country
+- GET /travel-restrictions/:country **DONE without the dinamic**
 
   - renders the /country-info.hbs
   - includes the travel covid info for a country

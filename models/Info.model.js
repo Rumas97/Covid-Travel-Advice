@@ -23,7 +23,7 @@ const infoModelSchema = new Schema({
 
   status: {
     type: String,
-    enum: ["verified", "pending"],
+    default: "pending",
   },
 });
 

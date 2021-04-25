@@ -1,9 +1,20 @@
 const router = require("express").Router();
 const userModel = require("../models/User.model");
+//const { authorize } = require("/covid-info.routes"); TRY TO EXPORT AUTHORIZE CUSTOM MIDDLEWARE
 const bcrypt = require("bcryptjs");
+//router.use("/", authorize);
+
+const authorize = (req, res, next) => {
+  console.log("middleware");
+  if (req.session.userInfo) {
+    next();
+  } else {
+    res.redirect("/auth/login");
+  }
+};
 
 //this route needs to be protected
-router.get("/profile/:id", (req, res, next) => {
+router.get("/profile/:id", authorize, (req, res, next) => {
   const { id } = req.params;
 
   userModel
@@ -17,7 +28,7 @@ router.get("/profile/:id", (req, res, next) => {
 
 //routes for editing profile
 
-router.get("/profile/:id/edit", (req, res, next) => {
+router.get("/profile/:id/edit", authorize, (req, res, next) => {
   const { id } = req.params;
 
   userModel
@@ -29,7 +40,7 @@ router.get("/profile/:id/edit", (req, res, next) => {
     .catch(() => {});
 });
 
-router.post("/profile/:id/edit", (req, res, next) => {
+router.post("/profile/:id/edit", authorize, (req, res, next) => {
   const { id } = req.params;
   const { username, email } = req.body;
 
@@ -38,19 +49,17 @@ router.post("/profile/:id/edit", (req, res, next) => {
     .then((data) => {
       console.log(" profile its working");
       router.get("/profile/:id");
-      userModel
-        .findById(id)
-        .then((data) => {
-          res.render("user-profile.hbs", { data });
-        })
+      return userModel.findById(id).then((data) => {
+        res.render("user-profile.hbs", { data });
+      });
 
-        .catch(() => {});
+      //.catch(() => {});
     })
 
     .catch(() => {});
 });
 
-router.post("/profile/:id/delete", (req, res, next) => {
+router.post("/profile/:id/delete", authorize, (req, res, next) => {
   const { id } = req.params;
   userModel
     .findByIdAndDelete(id)
