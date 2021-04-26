@@ -14,11 +14,12 @@ const authorize = (req, res, next) => {
 };
 
 //this route needs to be protected
-router.get("/profile/:id", authorize, (req, res, next) => {
-  const { id } = req.params;
+router.get("/profile", authorize, (req, res, next) => {
+  //a user that is logged in should be able to see only their profile so no dynamicity needed
+  const { _id } = req.session.userInfo;
 
   userModel
-    .findById(id)
+    .findById(_id)
     .then((data) => {
       res.render("user-profile.hbs", { data });
     })
@@ -28,11 +29,11 @@ router.get("/profile/:id", authorize, (req, res, next) => {
 
 //routes for editing profile
 
-router.get("/profile/:id/edit", authorize, (req, res, next) => {
-  const { id } = req.params;
+router.get("/profile/edit", authorize, (req, res, next) => {
+  const { _id } = req.session.userInfo;
 
   userModel
-    .findById(id)
+    .findById(_id)
     .then((data) => {
       res.render("edit-profile.hbs", { data });
     })
@@ -40,16 +41,16 @@ router.get("/profile/:id/edit", authorize, (req, res, next) => {
     .catch(() => {});
 });
 
-router.post("/profile/:id/edit", authorize, (req, res, next) => {
-  const { id } = req.params;
+router.post("/profile/edit", authorize, (req, res, next) => {
+  const { _id } = req.session.userInfo;
   const { username, email } = req.body;
 
   userModel
-    .findByIdAndUpdate(id, { username, email })
+    .findByIdAndUpdate(_id, { username, email })
     .then((data) => {
       console.log(" profile its working");
-      router.get("/profile/:id");
-      return userModel.findById(id).then((data) => {
+      router.get("/profile");
+      return userModel.findById(_id).then((data) => {
         res.render("user-profile.hbs", { data });
       });
 

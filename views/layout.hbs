@@ -24,6 +24,9 @@
           <a href="/main">ADD INFORMATION OF A COUNTRY</a>
           {{#if isUserLoggedIn }}
             <a href="/logout">LOG OUT</a>
+            <a href="/profile">PROFILE</a>
+           {{else if isAdminLoggedIn}}
+           <a href="/logout-admin">LOG OUT</a>
            {{else}}
           <a href="/auth/signup">SIGN UP</a>
           <a href="/auth/login">LOG IN</a>

@@ -51,9 +51,9 @@ Homepage
 
 **auth.routes.js**
 
-- GET /auth/main (SignUp/LogIn MainPage)
+- GET /main (SignUp/LogIn MainPage) **DONE**
 
-  - redirects to / if user logged in
+  - redirects to / if user logged in 
   - renders the /main-page.hbs (to log in or sign up)
 
 - GET /auth/signup (sign up page) - **DONE**

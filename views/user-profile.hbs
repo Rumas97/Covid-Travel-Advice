@@ -1,14 +1,12 @@
 <h3> Hey, {{data.username}}, welcome to your profile</h3>
 
 
-<form action="/profile/{{data._id}}/delete" method="POST">
+<form action="/profile/delete" method="POST">
   <button>Delete</button>
 </form>
 
-<form action="/profile/{{data.id}}/edit" method="GET">
+<form action="/profile/edit" method="GET">
   <button type="submit">Edit</button>
 </form>
 
-<form action="/profile/{{data._id}}/delete" method="POST">
-  <button>Delete</button>
-</form>
+

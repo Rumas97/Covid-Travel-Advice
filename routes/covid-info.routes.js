@@ -20,6 +20,7 @@ router.get("/add-information", authorize, (req, res, next) => {
 });
 
 router.post("/add-information", authorize, (req, res, next) => {
+  const { _id } = req.session.userInfo;
   const {
     travellingTo,
     travellingFrom,
@@ -30,6 +31,7 @@ router.post("/add-information", authorize, (req, res, next) => {
   } = req.body;
   infoModel
     .create({
+      userId: _id,
       travellingTo,
       travellingFrom,
       quarantine,
@@ -63,9 +65,12 @@ router.get("/travel-restrictions", (req, res, next) => {
     covidTest,
     currentDate,
   } = req.body;
-  infoModel.find().then((allEntries) => {
-    res.render("country-info.hbs", { allEntries });
-  });
+  infoModel
+    .find()
+    .populate("userId")
+    .then((allEntries) => {
+      res.render("country-info.hbs", { allEntries });
+    });
 });
 
 module.exports = router;

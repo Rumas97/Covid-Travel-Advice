@@ -2,7 +2,7 @@
 
 <form action="/add-information" method="POST">
   <label>Date</label>
-  <input name="date" type="text"  placeholder="Enter the date you travelled"  >
+  <input name="currentDate" type="date"  placeholder="Enter the date you travelled"  >
   
   <label>Travelling to</label>
   <input name="travellingTo" type="text" placeholder="Where are you travelling to?"  >
@@ -11,10 +11,20 @@
   <input name="travellingFrom" type="text"  placeholder="Where are you travelling from?" >
 
   <label>Type of COVID test done</label>
-  <input name="covidTest" type="text"  placeholder="Is there a COVID test required?" >
+  <select name="covidTest" >
+    <option value = ''>Please choose an option</option>
+    <option value = 'PCR'>PCR</option>
+    <option value = 'AntiGen'>AntiGen</option>
+    <option value = 'RT-LAMP'>RT-LAMP</option>
+    <option value = 'TMA'>TMA</option>
+  </select>
 
   <label>Is quarantine required?</label>
-  <input name="quarantine" type="text"  placeholder="Do you need to do quarantine?" >
+  <select name ='quarantine'>
+    <option value=" ">Please choose an option</option>
+    <option value = 'yes'>YES</option>
+    <option value = 'no'>NO</option>
+  </select>
 
   <label>Something else you want to add?</label>
   <input name="experience" type="text"  placeholder="Enter some more info" >

@@ -50,9 +50,9 @@ router.get("/user-entries/:id/verify", (req, res, next) => {
 
 router.post("/user-entries/:id/verify", (req, res, next) => {
   const { id } = req.params;
-  const { status } = req.body;
+
   infoModel
-    .findByIdAndUpdate(id, { status })
+    .findByIdAndUpdate(id, { status: "verified" })
     .then((data) => {
       res.redirect("/user-entries");
     })
