@@ -1,9 +1,17 @@
 const router = require("express").Router();
 const infoModel = require("../models/Info.model");
 
+const authorize = (req, res, next) => {
+  console.log("middleware");
+  if (req.session.adminInfo) {
+    next();
+  } else {
+    res.redirect("/auth/login-admin");
+  }
+};
 //GET ROUTE FOR ADMIN VIEW
 //this route need to be protected
-router.get("/user-entries", (req, res, next) => {
+router.get("/user-entries", authorize, (req, res, next) => {
   infoModel
     .find()
     .then((allEntries) => {
@@ -13,7 +21,7 @@ router.get("/user-entries", (req, res, next) => {
     .catch(() => {});
 });
 
-router.post("/user-entries/:id/delete", (req, res, next) => {
+router.post("/user-entries/:id/delete", authorize, (req, res, next) => {
   const { id } = req.params;
   infoModel
     .findByIdAndDelete(id)
@@ -22,22 +30,9 @@ router.post("/user-entries/:id/delete", (req, res, next) => {
     })
 
     .catch(() => {});
-}); //NOT SURE HOW TO DO THE VERIFY IN A DIFFERENT WAY
+});
 
-/*router.post("/user-entries/:id/verify", (req, res, next) => {
-  const { id } = req.params;
-
-  infoModel
-    .findByIdAndUpdate(id)
-    .then(() => {
-      if (status.enum === "pending") {
-      }
-    })
-
-    .catch(() => {});
-}); */
-
-router.get("/user-entries/:id/verify", (req, res, next) => {
+router.get("/user-entries/:id/verify", authorize, (req, res, next) => {
   const { id } = req.params;
   infoModel
     .findById(id)
@@ -48,7 +43,7 @@ router.get("/user-entries/:id/verify", (req, res, next) => {
     .catch(() => {});
 });
 
-router.post("/user-entries/:id/verify", (req, res, next) => {
+router.post("/user-entries/:id/verify", authorize, (req, res, next) => {
   const { id } = req.params;
 
   infoModel
@@ -59,10 +54,5 @@ router.post("/user-entries/:id/verify", (req, res, next) => {
 
     .catch(() => {});
 });
-
-//1. Change status to a default value "pending"
-//2. Country-info.hbs we display data.status
-//3. We have a button in verify-entries, we have an edit button
-//4. As admins, editing the status from "pending" to "verified"
 
 module.exports = router;

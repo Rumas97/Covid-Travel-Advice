@@ -112,36 +112,12 @@ router.get("/logout", (req, res, next) => {
   res.redirect("/");
 });
 
-router
-  .use(function (req, res, next) {
-    res.set(
-      "Cache-Control",
-      "no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0"
-    );
-    next();
-  })
-  .get("/auth/login", function (req, res, next) {
-    res.render("login-form.hbs");
-  });
-
 router.get("/logout-admin", (req, res, next) => {
   req.app.locals.isAdminLoggedIn = false;
 
   req.session.destroy();
   res.redirect("/");
 });
-
-router
-  .use(function (req, res, next) {
-    res.set(
-      "Cache-Control",
-      "no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0"
-    );
-    next();
-  })
-  .get("/auth/login-admin", function (req, res, next) {
-    res.redirect("/main");
-  });
 
 //GET ROUTE FOR SHOWING THE MAIN PAGE
 

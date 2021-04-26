@@ -55,20 +55,14 @@ router.get("/entry-success", (req, res, next) => {
 
 //Trying to display the status routes
 
-router.get("/travel-restrictions", (req, res, next) => {
-  const {
-    status,
-    travellingTo,
-    travellingFrom,
-    quarantine,
-    experience,
-    covidTest,
-    currentDate,
-  } = req.body;
+router.get("/travel-restrictions/:travellingTo", (req, res, next) => {
+  const { travellingTo } = req.params;
+  console.log(travellingTo);
   infoModel
-    .find()
+    .find({ travellingTo })
     .populate("userId")
     .then((allEntries) => {
+      console.log(allEntries);
       res.render("country-info.hbs", { allEntries });
     });
 });
