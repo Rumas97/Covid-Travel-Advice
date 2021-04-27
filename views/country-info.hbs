@@ -1,8 +1,15 @@
-<h1>COVID RESTRICTIONS IN GERMANY</h1>
+  {{#each allEntries }}
+
+
+<h1>COVID Restrictions In {{this.travellingTo}} </h1>
+
+ {{/each}} 
 
 <ul>
 
   {{#each allEntries }}
+
+  
 
   <li>User: {{this.userId.username}}</li>
 

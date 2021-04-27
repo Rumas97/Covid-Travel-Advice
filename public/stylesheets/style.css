@@ -3,6 +3,11 @@ body {
   font: 16px Helvetica, Arial, sans-serif;
   background-size: 100%;
   background-color: #dde3e3;
+  height: 100%;
+}
+
+html {
+  height: 100%;
 }
 
 #mapid {
@@ -28,6 +33,7 @@ body {
   justify-content: center;
   background-color: white;
   width: 50%;
+  height: 100%;
 }
 
 #leftPart > h2 {
@@ -53,6 +59,7 @@ h1 {
 .block {
   display: flex;
   flex-direction: row;
+  height: 100%;
 }
 
 #globe {

@@ -61,9 +61,13 @@ router.get("/travel-restrictions/:travellingTo", (req, res, next) => {
   infoModel
     .find({ travellingTo })
     .populate("userId")
-    .then((allEntries) => {
-      console.log(allEntries);
-      res.render("country-info.hbs", { allEntries });
+    .then((allEntries, travellingTo) => {
+      if (!travellingTo) {
+        console.log(allEntries);
+        res.render("no-info.hbs");
+      } else {
+        res.render("country-info.hbs", { allEntries });
+      }
     });
 });
 

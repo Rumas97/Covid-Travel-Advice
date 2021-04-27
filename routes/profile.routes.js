@@ -3,6 +3,7 @@ const userModel = require("../models/User.model");
 //const { authorize } = require("/covid-info.routes"); TRY TO EXPORT AUTHORIZE CUSTOM MIDDLEWARE
 const bcrypt = require("bcryptjs");
 //router.use("/", authorize);
+const uploader = require("../routes/cloudinary");
 
 const authorize = (req, res, next) => {
   console.log("middleware");
@@ -12,6 +13,23 @@ const authorize = (req, res, next) => {
     res.redirect("/auth/login");
   }
 };
+
+router.post(
+  "/profile",
+  authorize,
+  uploader.single("image"),
+  (req, res, next) => {
+    req.file;
+    userModel
+      .findByIdAndUpdate(req.session.userInfo._id, {
+        profilePic: req.file.path,
+      })
+      .then(() => {
+        res.redirect("/profile");
+      })
+      .catch(() => {});
+  }
+);
 
 //this route needs to be protected
 router.get("/profile", authorize, (req, res, next) => {
