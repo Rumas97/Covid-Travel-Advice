@@ -5,6 +5,7 @@
 const UserModel = require("../models/User.model");
 const AdminModel = require("../models/Admin.model");
 const bcrypt = require("bcryptjs");
+const { response } = require("express");
 // let userInfo = {};
 
 const router = require("express").Router();
@@ -46,7 +47,9 @@ router.post("/auth/login", (req, res, next) => {
   const { username, password } = req.body;
 
   UserModel.findOne({ username })
+
     .then((response) => {
+      console.log(`Response:${response}`);
       if (!response) {
         res.render("login-form.hbs", {
           msg: "hey, email or password seems to be wrong",
