@@ -1,14 +1,62 @@
 /* Add these styles to your publc/stylesheets/style.css file */
 body {
-  padding: 50px;
   font: 16px Helvetica, Arial, sans-serif;
   background-size: 100%;
+  background-color: #dde3e3;
 }
 
-h1,
-h2,
-h3 {
+#mapid {
+  height: 400px;
+  width: 600px;
+}
+
+#navBar {
+}
+
+#leftPart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  background-color: dde3e3;
+}
+
+#rightPart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 50%;
+}
+
+#leftPart > h2 {
+  color: black;
+  font-weight: 400;
+  font-size: 24px;
+}
+
+h2 {
   text-align: center;
+  text-align: center;
+  color: #45bbc6;
+  font-weight: 700;
+  font-size: 30px;
+}
+
+h1 {
+  font-weight: 700;
+  text-align: center;
+  color: #f1b204;
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+}
+
+#globe {
+  width: 500px;
 }
 
 a {
@@ -22,7 +70,7 @@ a {
 }
 
 a:hover {
-  color: #ffba49;
+  color: #f1b204;
 }
 
 form {
@@ -63,7 +111,7 @@ form button {
 }
 
 form button:hover {
-  background: #ffba49;
+  background: #f1b204;
   color: black;
   transition: 0.3s ease background;
 }
@@ -111,8 +159,4 @@ ul li {
   color: #000;
   font-weight: bold;
   font-size: 2em;
-}
-
-#mapid {
-  height: 800px;
 }

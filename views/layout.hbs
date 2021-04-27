@@ -11,31 +11,26 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="stylesheets/style.css" />
   </head>
 
   <body>
     <header>
-      <div>
+      <div id="navBar">
         <nav>
           <a href="/">HOME</a>
           <a href="/about-us">ABOUT</a>
           <a href="/contact">CONTACT</a>
-          <a href="/main">ADD INFORMATION OF A COUNTRY</a>
+          <a href="/main">ADD INFORMATION</a>
           {{#if isUserLoggedIn }}
             <a href="/logout">LOG OUT</a>
             <a href="/profile">PROFILE</a>
            {{else if isAdminLoggedIn}}
            <a href="/logout-admin">LOG OUT</a>
-           {{else}}
-          <a href="/auth/signup">SIGN UP</a>
-          <a href="/auth/login">LOG IN</a>
+          
          
          {{/if}}
 
