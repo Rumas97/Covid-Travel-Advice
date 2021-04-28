@@ -17,27 +17,55 @@
     />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
     <div class="block">
       <div id="leftPart">
         <header>
-          <div id="navBar">
-            <nav>
-              <a href="/">HOME</a>
-              <a href="/about-us">ABOUT</a>
-              <a href="/main">ADD INFORMATION</a>
-              {{#if isUserLoggedIn }}
-              <a href="/logout">LOG OUT</a>
-              <a href="/profile">PROFILE</a>
-              {{else if isAdminLoggedIn}}
-              <a href="/logout-admin">LOG OUT</a>
-
-              {{/if}}
-            </nav>
-          </div>
+          <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="/">HOME</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                    <a class="navbar-brand" href="/about-us">ABOUT</a>
+                  </li>
+                  {{!-- <li class="nav-item">
+                    <a class="navbar-brand" href="/main">ADD INFO</a>
+                  </li> --}}
+                  <li class="nav-item">
+                    <a class="navbar-brand" href="/main">LOG IN</a>
+                  </li>
+                  {{#if isUserLoggedIn }}
+                  <li class="nav-item">
+                    <a class="navbar-brand" href="/logout">LOG OUT</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="navbar-brand" href="/profile">PROFILE</a>
+                  </li>
+                  {{else if isAdminLoggedIn}}
+                  <li class="nav-item">
+                    <a class="navbar-brand" href="/logout-admin">LOG OUT</a>
+                  </li>
+                  {{/if}}
+                </ul>
+              </div>
+            </div>
+          </nav>
         </header>
+        <br>
         <h1>COVID TRAVEL ADVICE</h1>
 
         <h2>

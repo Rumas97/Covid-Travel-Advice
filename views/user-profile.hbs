@@ -1,14 +1,27 @@
+<div class= "container">
 <h3> Hey, {{data.username}}, welcome to your profile</h3>
 
-<img src="{{data.profilePic}} " alt="myPicture">
+  <div class = "profile-image">
+    <img src="{{data.profilePic}} " alt="myPicture">
+  </div>
+  <br>
+
+  <div class="container">
+    <p>Username: {{data.username}}</p>
+    
+    <p>Email: {{data.email}}</p>
+  </div>
+  
+  <form action="/profile/edit" method="GET">
+    <button type="submit">Edit profile details</button>
+  </form>
+
+  <form action="/profile/delete" method="POST">
+    <button>Delete profile</button>
+  </form>
 
 
-<form action="/profile/delete" method="POST">
-  <button>Delete</button>
-</form>
+</div>
 
-<form action="/profile/edit" method="GET">
-  <button type="submit">Edit</button>
-</form>
 
 

@@ -16,12 +16,8 @@ html {
   width: 600px;
 }
 
-.navbar-dark .navbar-brand {
-  color: #fcc736;
-}
-
-.bg-dark {
-  background-color: #072221 !important;
+.navbar-brand:hover {
+  color: #f1b204;
 }
 
 #leftPart {
@@ -62,11 +58,11 @@ h2 {
   font-size: 30px;
 }
 
-/* .container {
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
-} */
+}
 
 #general-information {
   display: flex;
@@ -195,17 +191,6 @@ form button:hover {
   width: 100%;
 }
 
-/* ul {
-  border-bottom: 2px solid #45bbc6;
-  height: 30px;
-  padding: 1em 0;
-  list-style-type: none;
-} */
-
-/* ul li {
-  line-height: 20px;
-} */
-
 #to-right {
   padding: 1em;
   float: right;
@@ -229,6 +214,23 @@ form button:hover {
   color: #000;
   font-weight: bold;
   font-size: 2em;
+}
+
+/* Styles for user profile*/
+
+.profile-image > img {
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 1px solid #45bbc6;
+  object-fit: cover;
+}
+
+.container > p {
+  color: #000;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 /* Add these styles to your publc/stylesheets/style.css file */
