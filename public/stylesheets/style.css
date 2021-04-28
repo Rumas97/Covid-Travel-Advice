@@ -216,6 +216,15 @@ form button:hover {
   font-size: 2em;
 }
 
+.container > img {
+  width: 400px;
+  height: 400px;
+}
+
+.container > .info-success {
+  font-size: 22px;
+}
+
 /* Styles for user profile*/
 
 .profile-image > img {

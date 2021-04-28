@@ -1,28 +1,30 @@
-
+<div class = 'container'>
   <h1> COVID Restrictions In {{allEntries.0.travellingTo}} </h1>
 
-<ul>
+  <ul class = "list-group">
 
-  {{#each allEntries }}
+    {{#each allEntries }}
 
-  
+    <li class="list-group-item">User: {{this.userId.username}}</li>
 
-  <li>User: {{this.userId.username}}</li>
+    <li class="list-group-item">Status: {{this.status}}</li>
 
- <li>Status: {{this.status}}</li>
+    <li class="list-group-item">Date: {{this.currentDate}}</li>
 
- <li>Date: {{this.currentDate}}</li>
+    <li class="list-group-item">Travelling To: {{this.travellingTo}}</li>
 
- <li>Travelling To: {{this.travellingTo}}</li>
+    <li class="list-group-item">Travelling From: {{this.travellingFrom}}</li>
 
- <li>Travelling From: {{this.travellingFrom}}</li>
+    <li class="list-group-item">Quarantine: {{this.quarantine}}</li>
 
- <li>Quarantine: {{this.quarantine}}</li>
+    <li class="list-group-item">COVID test: {{this.covidTest}}</li>
 
- <li>COVID test: {{this.covidTest}}</li>
+    <li class="list-group-item">Experience: {{this.experience}}</li>
 
- <li>Experience: {{this.experience}}</li>
+    <br>
 
- {{/each}} 
+    {{/each}} 
 
-</ul>
+  </ul>
+
+</div>
