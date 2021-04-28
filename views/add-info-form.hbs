@@ -1,35 +1,38 @@
-<h1>ENTER YOUR EXPERIENCE TO HELP OTHERS TRAVEL SAFELY</h1>
+<div class = "container">
+  <h1>ENTER YOUR EXPERIENCE TO HELP OTHERS TRAVEL SAFELY</h1>
 
-<form action="/add-information" method="POST">
-  <label>Date</label>
-  <input name="currentDate" type="date"  placeholder="Enter the date you travelled"  >
-  
-  <label>Travelling to</label>
-  <input name="travellingTo" type="text" placeholder="Where are you travelling to?"  >
+  <form action="/add-information" method="POST">
+    <label>Date</label>
+    <input name="currentDate" type="date"  placeholder="Enter the date you travelled"  >
+    <br>
+    <label>Travelling to</label>
+    <input name="travellingTo" type="text" placeholder="Where are you travelling to?"  >
+    <br>
+    <label>Travelling from</label>
+    <input name="travellingFrom" type="text"  placeholder="Where are you travelling from?" >
+    <br>
+    <label>Type of COVID test done</label>
+    <select name="covidTest" >
+      <option value = ''>Please choose an option</option>
+      <option value = 'PCR'>PCR</option>
+      <option value = 'AntiGen'>AntiGen</option>
+      <option value = 'RT-LAMP'>RT-LAMP</option>
+      <option value = 'TMA'>TMA</option>
+    </select>
+    <br>
+    <label>Is quarantine required?</label>
+    <select name ='quarantine'>
+      <option value=" ">Please choose an option</option>
+      <option value = 'yes'>YES</option>
+      <option value = 'no'>NO</option>
+    </select>
+    <br>
+    <label>Something else you want to add?</label>
+    <input name="experience" type="text"  placeholder="How" >
+    
+    
 
-  <label>Travelling from</label>
-  <input name="travellingFrom" type="text"  placeholder="Where are you travelling from?" >
+    <button >Get your info verified</button>
+  </form>
 
-  <label>Type of COVID test done</label>
-  <select name="covidTest" >
-    <option value = ''>Please choose an option</option>
-    <option value = 'PCR'>PCR</option>
-    <option value = 'AntiGen'>AntiGen</option>
-    <option value = 'RT-LAMP'>RT-LAMP</option>
-    <option value = 'TMA'>TMA</option>
-  </select>
-
-  <label>Is quarantine required?</label>
-  <select name ='quarantine'>
-    <option value=" ">Please choose an option</option>
-    <option value = 'yes'>YES</option>
-    <option value = 'no'>NO</option>
-  </select>
-
-  <label>Something else you want to add?</label>
-  <input name="experience" type="text"  placeholder="Enter some more info" >
-  
-  
-
-  <button >Get your info verified</button>
-</form>
+</div>
