@@ -1,6 +1,6 @@
 <h2>Edit profile details</h2>
 
-<form action="/profile/edit" method="POST" enctype="multipart/form-data">
+<form action="/profile/edit" method="POST">
 
   <label for="username">Username</label>
   <input type="text" name="username" value="{{data.username}}">
@@ -12,12 +12,10 @@
 
   <br>
 
-  <input type="file" name="image" accept="image/png, image/jpg">
-
   <button type="submit">Submit</button>
 </form>
 
-  {{!-- <form method="POST" action="/profile" enctype="multipart/form-data">
-   
-    <button type="submit">Submit</button> 
-</form>   --}}
+<form method="POST" action="/profile" enctype="multipart/form-data">
+    <input type="file" name="image" accept="image/png, image/jpg">
+   <button type="submit">Change picture</button> 
+</form>   
