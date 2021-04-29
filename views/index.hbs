@@ -55,30 +55,16 @@
                     <a class="navbar-brand" href="/auth/login">LOG IN</a>
                   </li>
                   {{#if isUserLoggedIn }}
-                 
+                  <li class="nav-item">
+                    <a class="navbar-brand" href="/logout">LOG OUT</a>
+                  </li>
                   <li class="nav-item">
                     <a class="navbar-brand" href="/profile">PROFILE</a>
-                  </li>
-                   <li class="nav-item">
-                    <a class="navbar-brand" href="/add-information">ADD INFO</a>
-                  </li>
-                   <li class="nav-item">
-                    <a class="navbar-brand" href="/logout">LOG OUT</a>
                   </li>
                   {{else if isAdminLoggedIn}}
                   <li class="nav-item">
                     <a class="navbar-brand" href="/logout-admin">LOG OUT</a>
                   </li>
-<<<<<<< HEAD
-=======
-                  <li class="nav-item"> <a class="navbar-brand" href="/user-entries">VERIFY ENTRIES</a></li>
-                  {{else}}
-
-<li class="nav-item">
-                    <a class="navbar-brand" href="/main">REGISTER</a>
-                  </li >
-                  <li class="nav-item"><a class="navbar-brand" href="/auth/login">LOG IN</a></li>
->>>>>>> 8f8ebeb0c9e7e9c34d8054e4459a9b804a00670d
                   {{/if}}
                 </ul>
               </div>
@@ -96,13 +82,13 @@
         <img id="globe" src="/images/globe.png" alt="globe" />
       </div>
 
-      <div id="rightPart">
+      <d iv id="rightPart">
         <h2>SELECT A COUNTRY</h2>
         <p>
           Choose the country that you want to travel to, to see the restrictions
         </p>
     
-        <select  name="travellingTo">
+        <select id='corona' name="travellingTo">
           <option value = ''>Please choose a country</option>
           {{#each mapCountry}}
           <option value="{{this}}">{{this}}</option>
@@ -110,7 +96,7 @@
         </select>
 
         <div id="mapid"></div>
-        <div id= 'corona'></div>
+        
 
         <script src="./js/countries.geo.js"></script>
 
