@@ -138,6 +138,10 @@ h2 {
   font-size: 24px;
 }
 
+.signUpLink {
+  font-size: 16px;
+}
+
 h1 {
   font-weight: 800;
   text-align: center;
@@ -153,6 +157,12 @@ h1 {
 
 .list-group-item {
   border: none;
+}
+
+#verifyEntries {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .container h1 {

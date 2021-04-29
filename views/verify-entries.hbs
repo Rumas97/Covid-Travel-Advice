@@ -1,30 +1,35 @@
 <h1>User entry verification</h1>
 
-<ul>
+<section id="verifyEntries">
+<ul class = "list-group">
 {{#each allEntries }}
 
-<li>Status: {{this.status}}</li>
+<div >
 
-<li>Date: {{this.currentDate}}</li>
+<li class="list-group-item">Status: {{this.status}}</li>
 
-<li>Travelling To: {{this.travellingTo}}</li>
+<li class="list-group-item">Date: {{this.currentDate}}</li>
 
-<li>Travelling From: {{this.travellingFrom}}</li>
+<li class="list-group-item">Travelling To: {{this.travellingTo}}</li>
 
-<li>Quarantine: {{this.quarantine}}</li>
+<li class="list-group-item">Travelling From: {{this.travellingFrom}}</li>
 
-<li>COVID test: {{this.covidTest}}</li>
+<li class="list-group-item">Quarantine: {{this.quarantine}}</li>
 
-<li>Experience: {{this.experience}}</li>
+<li class="list-group-item">COVID test: {{this.covidTest}}</li>
+
+<li class="list-group-item">Experience: {{this.experience}}</li>
 
 <form action="/user-entries/{{this.id}}/delete" method="POST">
   <button>Delete</button>
 </form>
-
 <form action="/user-entries/{{this.id}}/verify" method="POST">
   <button>Verify</button>
 </form>
-
+</div>
+<br>
 
 {{/each}}
 </ul>
+
+</section>

@@ -55,16 +55,30 @@
                     <a class="navbar-brand" href="/auth/login">LOG IN</a>
                   </li>
                   {{#if isUserLoggedIn }}
-                  <li class="nav-item">
-                    <a class="navbar-brand" href="/logout">LOG OUT</a>
-                  </li>
+                 
                   <li class="nav-item">
                     <a class="navbar-brand" href="/profile">PROFILE</a>
+                  </li>
+                   <li class="nav-item">
+                    <a class="navbar-brand" href="/add-information">ADD INFO</a>
+                  </li>
+                   <li class="nav-item">
+                    <a class="navbar-brand" href="/logout">LOG OUT</a>
                   </li>
                   {{else if isAdminLoggedIn}}
                   <li class="nav-item">
                     <a class="navbar-brand" href="/logout-admin">LOG OUT</a>
                   </li>
+<<<<<<< HEAD
+=======
+                  <li class="nav-item"> <a class="navbar-brand" href="/user-entries">VERIFY ENTRIES</a></li>
+                  {{else}}
+
+<li class="nav-item">
+                    <a class="navbar-brand" href="/main">REGISTER</a>
+                  </li >
+                  <li class="nav-item"><a class="navbar-brand" href="/auth/login">LOG IN</a></li>
+>>>>>>> 8f8ebeb0c9e7e9c34d8054e4459a9b804a00670d
                   {{/if}}
                 </ul>
               </div>
