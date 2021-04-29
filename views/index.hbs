@@ -88,7 +88,7 @@
           Choose the country that you want to travel to, to see the restrictions
         </p>
     
-        <select name="travellingTo">
+        <select  name="travellingTo">
           <option value = ''>Please choose a country</option>
           {{#each mapCountry}}
           <option value="{{this}}">{{this}}</option>
@@ -96,14 +96,22 @@
         </select>
 
         <div id="mapid"></div>
+        <div id= 'corona'></div>
 
         <script src="./js/countries.geo.js"></script>
 
         <script>
 
-
+          let layers=[]
           let ourDataDromRoutes = {{{loc}}}
-          var map = L.map('mapid').setView(ourDataDromRoutes, 5)
+          var map = L.map('mapid')
+
+          const setCoordinate = (coordinates,zoom)=>{
+            map.setView(coordinates,zoom)
+          }
+
+          setCoordinate(ourDataDromRoutes, 5)
+
           L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
               attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           }).addTo(map);
@@ -124,14 +132,50 @@
               };
           }
 
-
-          L.geoJson(world, {
-            style: style
+          let myGeojSonLayerGroup = L.geoJson(world,{onEachFeature: myOnEachFeature,
+          style: style
           })
+
           .bindPopup((l) => {
+            //whats up with the "l"???? and the "?"
               return '<a href="/travel-restrictions/' +  l?.feature?.properties?.name + '">' +  l?.feature?.properties?.name + '</a>'
           })
           .addTo(map);
+
+        //adding event listener
+
+      let select = document.querySelector('#corona')
+      select.addEventListener('click',(e)=>{
+        //what is a layer???
+          console.log("clicked")
+          let countryLayer = layer.find(l =>{
+            return e.target.value == l.feature?.properties?.name
+          })
+        
+
+            countryLayer.setStyle({
+              fillColor: "red",
+              weight: 2,
+              opacity: 1,
+              color: 'white',
+              dashArray: '3',
+              fillOpacity: 0.5
+            })
+            //decide which co-ordinates to choose
+            if (countryLayer.feature.geometry.coordinates[0][0].length > 2) {
+                let [lng, lat] = countryLayer.feature.geometry.coordinates[0][0][0]
+                setCoordinate([lat, lng], 5)
+            }
+            else {
+                let [lng, lat] = countryLayer.feature.geometry.coordinates[0][0]
+                setCoordinate([lat, lng], 5)
+            }
+      })
+          // updates the layers variable with infor about all the countries added in the map
+          function myOnEachFeature(feature, layer) {
+            layers.push(layer)
+          }  
+
         </script>
       </div>
     </div>
