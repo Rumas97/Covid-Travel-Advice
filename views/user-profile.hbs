@@ -1,14 +1,20 @@
-<h3> Hey, {{data.username}}, welcome to your profile</h3>
+<h1> Hey {{data.username}}, welcome to your profile!</h1>
 
 <img src="{{data.profilePic}} " alt="myPicture">
 
+<ul>
+  <li>Your username: {{data.username}}
+</li>
+  <li>Your email: {{data.email}}
+</li>
+</ul>
 
 <form action="/profile/delete" method="POST">
-  <button>Delete</button>
+  <button>Delete your profile</button>
 </form>
 
 <form action="/profile/edit" method="GET">
-  <button type="submit">Edit</button>
+  <button type="submit">Edit your profile</button>
 </form>
 
 

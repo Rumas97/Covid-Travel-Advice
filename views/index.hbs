@@ -20,14 +20,19 @@
     <link rel="stylesheet" href="stylesheets/style.css" />
   </head>
   <body>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
+</style>
     <div class="block">
       <div id="leftPart">
         <header>
+          <br>
           <div id="navBar">
             <nav>
               <a href="/">HOME</a>
               <a href="/about-us">ABOUT</a>
-              <a href="/main">ADD INFORMATION</a>
+              <a href="/main">ADD INFO</a>
+              <a href="/auth/login">LOG IN</a>
               {{#if isUserLoggedIn }}
               <a href="/logout">LOG OUT</a>
               <a href="/profile">PROFILE</a>
@@ -38,6 +43,8 @@
             </nav>
           </div>
         </header>
+        <br>
+        <br>
         <h1>COVID TRAVEL ADVICE</h1>
 
         <h2>
