@@ -25,7 +25,7 @@ html {
 }
 
 .navbar-dark .navbar-brand:hover {
-  color: #219795;
+  color: #259391;
 }
 
 .bg-dark {
@@ -61,7 +61,7 @@ html {
 }
 
 #rightPart > h2 {
-  color: #36d3d0;
+  color: #259391;
   font-weight: 800;
   font-size: 28px;
 }
@@ -94,12 +94,18 @@ h2 {
   box-shadow: 2px 2px 10px 0 rgb(102, 100, 100);
   margin: 20px 5% 0 5%;
   padding: 20px;
-  background-color: #fede85;
+  background-color: #f3c136;
   width: 40%;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  transition: transform 0.4s !important;
+}
+
+#general-information > div a:hover {
+  color: black;
+  transform: scale(1.15);
 }
 
 #general-information p {
@@ -116,7 +122,20 @@ h2 {
   margin: 100px 5% 0 5%;
   padding: 20px;
   width: 40%;
-  background-color: #fede85;
+  background-color: #f3c136;
+}
+
+.buffer > a {
+  transition: transform 0.4s;
+}
+
+.buffer > a:hover {
+  color: black;
+  transform: scale(1.15) important;
+}
+
+#linkHome {
+  font-size: 24px;
 }
 
 h1 {
@@ -128,6 +147,8 @@ h1 {
 .list-group > div {
   box-sizing: border-box;
   box-shadow: 2px 2px 10px 0 rgb(102, 100, 100);
+  width: 500px;
+  padding: 20px;
 }
 
 .list-group-item {
@@ -172,7 +193,7 @@ a {
 }
 
 a:hover {
-  color: #36d3d0;
+  color: #259391;
 }
 
 form {
@@ -200,8 +221,8 @@ form button {
 }
 
 form button {
-  background: #45bbc6;
-  border: 1px solid #45bbc6;
+  background: #259391;
+  border: 1px solid #259391;
   border-radius: 4px;
   color: #fff;
   cursor: pointer;
@@ -217,6 +238,23 @@ form button:hover {
   background: #f1b204;
   color: black;
   transition: 0.3s ease background;
+}
+
+#filterButton {
+  display: column;
+  padding-bottom: 40px;
+  word-spacing: 15px;
+}
+
+.filterBut {
+  border-radius: 20px;
+  padding: 10px 30px 10px 30px;
+  box-shadow: 2px 2px 10px 0 rgb(102, 100, 100);
+}
+
+.filterBut:hover {
+  color: white;
+  background-color: #259391;
 }
 
 .error {

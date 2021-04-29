@@ -2,25 +2,36 @@
   <h1> COVID Restrictions In {{allEntries.0.travellingTo}} </h1>
   <br>
   <br>
+
+<div id="filterButton">
+  <form action="">
+  <select class="filterBut"> QUARANTINE</select>
+  <select class="filterBut"> STATUS</select>
+  <select class="filterBut"> TRAVELLING FROM</select>
+  <button class="filterBut">DATE</button>
+</form>
+</div>
+ 
+
   <ul class = "list-group">
     
     {{#each allEntries }}
     <div>
-    <li class="list-group-item">User: {{this.userId.username}}</li>
+    <li class="list-group-item">✈️ User: {{this.userId.username}}</li>
 
-    <li class="list-group-item">Status: {{this.status}}</li>
+    <li class="list-group-item">✈️ Status: {{this.status}}</li>
 
-    <li class="list-group-item">Date: {{this.currentDate}}</li>
+    <li class="list-group-item">✈️ Date: {{this.currentDate}}</li>
 
-    <li class="list-group-item">Travelling To: {{this.travellingTo}}</li>
+    <li class="list-group-item">✈️ Travelling To: {{this.travellingTo}}</li>
 
-    <li class="list-group-item">Travelling From: {{this.travellingFrom}}</li>
+    <li class="list-group-item">✈️ Travelling From: {{this.travellingFrom}}</li>
 
-    <li class="list-group-item">Quarantine: {{this.quarantine}}</li>
+    <li class="list-group-item">✈️ Quarantine: {{this.quarantine}}</li>
 
-    <li class="list-group-item">COVID test: {{this.covidTest}}</li>
+    <li class="list-group-item">✈️COVID test: {{this.covidTest}}</li>
 
-    <li class="list-group-item">Experience: {{this.experience}}</li>
+    <li class="list-group-item">✈️Experience: {{this.experience}}</li>
     </div>
     <br>
     <br>

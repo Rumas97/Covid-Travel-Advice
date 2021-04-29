@@ -69,9 +69,11 @@ router.post("/profile/edit", authorize, (req, res, next) => {
     .findByIdAndUpdate(_id, { username, email })
     .then((data) => {
       router.get("/profile");
-      return userModel.findById(_id).then((data) => {
-        res.render("user-profile.hbs", { data });
-      });
+      return userModel.findById(_id);
+    })
+
+    .then((data) => {
+      res.render("user-profile.hbs", { data });
     })
 
     .catch((err) => {
