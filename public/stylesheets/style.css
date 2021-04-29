@@ -250,21 +250,8 @@ form button:hover {
   transition: 0.3s ease background;
 }
 
-#filterButton {
-  display: column;
-  padding-bottom: 40px;
-  word-spacing: 15px;
-}
-
-.filterBut {
-  border-radius: 20px;
-  padding: 10px 30px 10px 30px;
-  box-shadow: 2px 2px 10px 0 rgb(102, 100, 100);
-}
-
-.filterBut:hover {
-  color: white;
-  background-color: #259391;
+.filters {
+  display: flex;
 }
 
 .error {

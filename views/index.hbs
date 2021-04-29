@@ -45,26 +45,31 @@
                   <li class="nav-item">
                     <a class="navbar-brand" href="/about-us">ABOUT</a>
                   </li>
-                  {{!-- <li class="nav-item">
-                    <alass="navbar-brand" href="/main">ADD INFO</a>
-                  </li> --}}
                   <li class="nav-item">
-                    <a class="navbar-brand" href="/main">REGISTER</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="navbar-brand" href="/auth/login">LOG IN</a>
-                  </li>
+
                   {{#if isUserLoggedIn }}
-                  <li class="nav-item">
-                    <a class="navbar-brand" href="/logout">LOG OUT</a>
-                  </li>
                   <li class="nav-item">
                     <a class="navbar-brand" href="/profile">PROFILE</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="navbar-brand" href="/add-information">ADD INFO</a>
+                  </li>
+                 <li class="nav-item">
+                    <a class="navbar-brand" href="/logout">LOG OUT</a>
+                  </li>
+
                   {{else if isAdminLoggedIn}}
+                  <li class="nav-item"> <a class="navbar-brand" href="/user-entries">VERIFY ENTRIES</a></li>
                   <li class="nav-item">
                     <a class="navbar-brand" href="/logout-admin">LOG OUT</a>
                   </li>
+
+                  {{else}}
+
+                  <li class="nav-item">
+                  <a class="navbar-brand" href="/main">REGISTER</a>
+                  </li >
+                  <li class="nav-item"><a class="navbar-brand" href="/auth/login">LOG IN</a></li>
                   {{/if}}
                 </ul>
               </div>
