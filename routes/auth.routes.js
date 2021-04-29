@@ -53,7 +53,7 @@ router.post("/auth/login", (req, res, next) => {
       console.log(`Response:${response}`);
       if (!response) {
         res.render("login-form.hbs", {
-          msg: "hey, email or password seems to be wrong",
+          msg: "Hey, Username or password seems to be wrong",
         });
       } else {
         bcrypt.compare(password, response.password).then((isMatching) => {
@@ -63,7 +63,7 @@ router.post("/auth/login", (req, res, next) => {
             res.redirect("/add-information");
           } else {
             res.render("login-form.hbs", {
-              msg: "hey, email or password seems to be wrong",
+              msg: "Hey, Username or password seems to be wrong",
             });
           }
         });
@@ -127,6 +127,12 @@ router.get("/logout-admin", (req, res, next) => {
 
 router.get("/main", (req, res, next) => {
   res.render("main-page.hbs");
+});
+
+//GET route to 500 error
+
+router.get("/123", (req, res, next) => {
+  res.render("error");
 });
 
 module.exports = router;
