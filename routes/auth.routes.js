@@ -6,7 +6,6 @@ const UserModel = require("../models/User.model");
 const AdminModel = require("../models/Admin.model");
 const bcrypt = require("bcryptjs");
 const { response } = require("express");
-// let userInfo = {};
 
 const router = require("express").Router();
 
@@ -22,12 +21,14 @@ router.post("/auth/signup", (req, res, next) => {
   const hash = bcrypt.hashSync(password, salt);
 
   UserModel.create({ username, password: hash, email })
-    .then(() => {
+    .then((response) => {
+      req.app.locals.isUserLoggedIn = true;
+      req.session.userInfo = response;
       res.redirect("/signup-success");
     })
 
     .catch((err) => {
-      console.log(err);
+      next(err);
     });
 });
 
@@ -70,7 +71,7 @@ router.post("/auth/login", (req, res, next) => {
     })
 
     .catch((err) => {
-      console.log(err);
+      next(err);
     });
 });
 
@@ -104,7 +105,7 @@ router.post("/auth/login-admin", (req, res, next) => {
       }
     })
     .catch((err) => {
-      console.log(err);
+      next(err);
     });
 });
 

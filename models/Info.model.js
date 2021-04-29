@@ -13,7 +13,6 @@ const infoModelSchema = new Schema({
 
   currentDate: {
     type: Date,
-    // default: Date.now,
   },
 
   covidTest: {

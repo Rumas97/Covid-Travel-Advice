@@ -2,15 +2,15 @@ const router = require("express").Router();
 const infoModel = require("../models/Info.model");
 
 const authorize = (req, res, next) => {
-  console.log("middleware");
   if (req.session.adminInfo) {
     next();
   } else {
     res.redirect("/auth/login-admin");
   }
 };
+
 //GET ROUTE FOR ADMIN VIEW
-//this route need to be protected
+//this route needs to be protected
 router.get("/user-entries", authorize, (req, res, next) => {
   infoModel
     .find()
@@ -18,7 +18,9 @@ router.get("/user-entries", authorize, (req, res, next) => {
       res.render("verify-entries.hbs", { allEntries });
     })
 
-    .catch(() => {});
+    .catch((err) => {
+      next(err);
+    });
 });
 
 router.post("/user-entries/:id/delete", authorize, (req, res, next) => {
@@ -29,7 +31,9 @@ router.post("/user-entries/:id/delete", authorize, (req, res, next) => {
       res.redirect("/user-entries");
     })
 
-    .catch(() => {});
+    .catch((err) => {
+      next(err);
+    });
 });
 
 router.get("/user-entries/:id/verify", authorize, (req, res, next) => {
@@ -40,7 +44,9 @@ router.get("/user-entries/:id/verify", authorize, (req, res, next) => {
       res.render("edit-status.hbs", { data });
     })
 
-    .catch(() => {});
+    .catch((err) => {
+      next(err);
+    });
 });
 
 router.post("/user-entries/:id/verify", authorize, (req, res, next) => {
@@ -52,7 +58,9 @@ router.post("/user-entries/:id/verify", authorize, (req, res, next) => {
       res.redirect("/user-entries");
     })
 
-    .catch(() => {});
+    .catch((err) => {
+      next(err);
+    });
 });
 
 module.exports = router;

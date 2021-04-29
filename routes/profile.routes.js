@@ -1,12 +1,9 @@
 const router = require("express").Router();
 const userModel = require("../models/User.model");
-//const { authorize } = require("/covid-info.routes"); TRY TO EXPORT AUTHORIZE CUSTOM MIDDLEWARE
 const bcrypt = require("bcryptjs");
-//router.use("/", authorize);
 const uploader = require("../routes/cloudinary");
 
 const authorize = (req, res, next) => {
-  console.log("middleware");
   if (req.session.userInfo) {
     next();
   } else {
@@ -27,13 +24,14 @@ router.post(
       .then(() => {
         res.redirect("/profile");
       })
-      .catch(() => {});
+      .catch((err) => {
+        next(err);
+      });
   }
 );
 
 //this route needs to be protected
 router.get("/profile", authorize, (req, res, next) => {
-  //a user that is logged in should be able to see only their profile so no dynamicity needed
   const { _id } = req.session.userInfo;
 
   userModel
@@ -42,7 +40,9 @@ router.get("/profile", authorize, (req, res, next) => {
       res.render("user-profile.hbs", { data });
     })
 
-    .catch(() => {});
+    .catch((err) => {
+      next(err);
+    });
 });
 
 //routes for editing profile
@@ -56,7 +56,9 @@ router.get("/profile/edit", authorize, (req, res, next) => {
       res.render("edit-profile.hbs", { data });
     })
 
-    .catch(() => {});
+    .catch((err) => {
+      next(err);
+    });
 });
 
 router.post("/profile/edit", authorize, (req, res, next) => {
@@ -66,16 +68,15 @@ router.post("/profile/edit", authorize, (req, res, next) => {
   userModel
     .findByIdAndUpdate(_id, { username, email })
     .then((data) => {
-      console.log(" profile its working");
       router.get("/profile");
       return userModel.findById(_id).then((data) => {
         res.render("user-profile.hbs", { data });
       });
-
-      //.catch(() => {});
     })
 
-    .catch(() => {});
+    .catch((err) => {
+      next(err);
+    });
 });
 
 router.post("/profile/:id/delete", authorize, (req, res, next) => {
@@ -86,7 +87,9 @@ router.post("/profile/:id/delete", authorize, (req, res, next) => {
       res.redirect("/profile-deleted-correctly");
     })
 
-    .catch(() => {});
+    .catch((err) => {
+      next(err);
+    });
 });
 
 module.exports = router;

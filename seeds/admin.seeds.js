@@ -18,9 +18,8 @@ const AdminModel = require("../models/Admin.model");
 
 AdminModel.create(admins)
   .then(() => {
-    console.log("seeds working");
     mongoose.connection.close();
   })
   .catch((err) => {
-    console.log("ERROR", err);
+    next(err);
   });
