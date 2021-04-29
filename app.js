@@ -18,6 +18,9 @@ const app = express();
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
 require("./config")(app);
 
+//requiring the countries.geo.js file
+const world = require("./public/js/countries.geo");
+
 // default value for title local
 const projectName = "covid-travel-advice";
 const capitalized = (string) =>
@@ -56,9 +59,16 @@ app.use(function (req, res, next) {
 // SAMPLE ROUTE
 app.get("/", (req, res, next) => {
   let loc = [51.505, -0.09];
+  let mapCountry = world.features.map((elem, index) => {
+    return elem.properties.name;
+  });
   // Sending some data to the hbs page
   //Always stringify data that the scripts might use in your hbs file
-  res.render("index.hbs", { loc: JSON.stringify(loc), layout: false });
+  res.render("index.hbs", {
+    loc: JSON.stringify(loc),
+    layout: false,
+    mapCountry,
+  });
 });
 
 // 👇 Start handling routes here

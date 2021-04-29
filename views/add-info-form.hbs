@@ -5,11 +5,24 @@
     <label>Date</label>
     <input name="currentDate" type="date"  placeholder="Enter the date you travelled"  >
     <br>
+    
     <label>Travelling to</label>
-    <input name="travellingTo" type="text" placeholder="Where are you travelling to?"  >
+    
+    <select name="travellingTo">
+      <option value = ''>Please choose a country</option>
+      {{#each mapCountry}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
+    
     <br>
     <label>Travelling from</label>
-    <input name="travellingFrom" type="text"  placeholder="Where are you travelling from?" >
+    <select name="travellingFrom">
+      <option value = ''>Please choose a country</option>
+      {{#each mapCountry}}
+      <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
     <br>
     <label>Type of COVID test done</label>
     <select name="covidTest" >
@@ -28,7 +41,7 @@
     </select>
     <br>
     <label>Something else you want to add?</label>
-    <input name="experience" type="text"  placeholder="How" >
+    <input name="experience" type="text"  placeholder="" >
     
     
 

@@ -84,6 +84,14 @@
         <p>
           Choose the country that you want to travel to, to see the restrictions
         </p>
+    
+        <select name="travellingTo">
+          <option value = ''>Please choose a country</option>
+          {{#each mapCountry}}
+          <option value="{{this}}">{{this}}</option>
+          {{/each}}
+        </select>
+
         <div id="mapid"></div>
 
         <script src="./js/countries.geo.js"></script>

@@ -1,6 +1,7 @@
 const infoModel = require("../models/Info.model");
 const router = require("express").Router();
 const session = require("express-sessions");
+const world = require("../public/js/countries.geo");
 
 //Custom middleware
 
@@ -16,7 +17,10 @@ const authorize = (req, res, next) => {
 //THIS ROUTE NEEDS TO BE PROTECTED SINCE ONLY REGISTERED USERS CAN ADD INFO
 router.get("/add-information", authorize, (req, res, next) => {
   const { username } = req.session.userInfo;
-  res.render("add-info-form.hbs", { username });
+  let mapCountry = world.features.map((elem, index) => {
+    return elem.properties.name;
+  });
+  res.render("add-info-form.hbs", { username, mapCountry });
 });
 
 router.post("/add-information", authorize, (req, res, next) => {
