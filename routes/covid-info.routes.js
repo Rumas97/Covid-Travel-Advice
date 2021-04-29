@@ -62,7 +62,9 @@ router.get("/entry-success", (req, res, next) => {
 router.get("/travel-restrictions/:travellingTo", (req, res, next) => {
   const { travellingTo } = req.params;
   infoModel
-    .find({ travellingTo })
+    .find({ travellingTo, ...req.query }, null, {
+      sort: { currentDate: -1 },
+    })
     .populate("userId")
     .then((allEntries) => {
       let clonedAllEntries = JSON.parse(JSON.stringify(allEntries));
