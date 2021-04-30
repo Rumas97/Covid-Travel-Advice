@@ -129,6 +129,12 @@ router.get("/main", (req, res, next) => {
   res.render("main-page.hbs");
 });
 
+//GET route for showing the about page
+
+router.get("/about-us", (req, res, next) => {
+  res.render("about.hbs");
+});
+
 //GET route to 500 error
 
 router.get("/123", (req, res, next) => {

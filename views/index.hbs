@@ -153,7 +153,9 @@
       select.addEventListener('click',(e)=>{
         //what is a layer???
           console.log("clicked")
-          let countryLayer = layer.find(l =>{
+          console.log(e.target.value)
+          let countryLayer = layers.find(l =>{
+            
             return e.target.value == l.feature?.properties?.name
           })
         
@@ -169,18 +171,18 @@
             //decide which co-ordinates to choose
             if (countryLayer.feature.geometry.coordinates[0][0].length > 2) {
                 let [lng, lat] = countryLayer.feature.geometry.coordinates[0][0][0]
-                setCoordinate([lat, lng], 5)
+                setCoordinate([lat, lng], 3)
             }
             else {
                 let [lng, lat] = countryLayer.feature.geometry.coordinates[0][0]
-                setCoordinate([lat, lng], 5)
+                setCoordinate([lat, lng], 3)
             }
       })
           // updates the layers variable with infor about all the countries added in the map
           function myOnEachFeature(feature, layer) {
             layers.push(layer)
           }  
-
+        console.log(layers)
         </script>
       </div>
     </div>

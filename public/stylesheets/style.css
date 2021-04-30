@@ -314,6 +314,29 @@ form button:hover {
   font-size: 1em;
 }
 
+/* for the about us page*/
+.about-us {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.members {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 10px 0 rgb(102, 100, 100);
+  margin: 20px;
+  padding-left: 10px;
+}
+
+.about-us .our-image {
+  width: 200px;
+  height: 200px;
+  margin: 30px 30px 30px 40px;
+}
+
 /* Add these styles to your publc/stylesheets/style.css file */
 @media (max-width: 1200px) {
   .block {

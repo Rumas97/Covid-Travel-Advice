@@ -3,32 +3,6 @@
   <br>
   <br>
 
-  <div class='filters'>
-      <form action="/travel-restrictions/:travellingTo" method="GET">
-      <label>Quarantine</label>
-      <select name = 'quarantine'> 
-        <option value=''>Please choose option</option>
-        <option value='Yes'>Yes</option>
-        <option value='No'>No</option>
-      </select>
-      <label>Status</label>
-      <select name='status'>
-        <option value=''>Please choose option</option>
-        <option value='Yes'>Yes</option>
-        <option value='No'>No</option>        
-      </select>
-      <label>Travelling from</label>
-      <select>
-      <option value = ''>Please choose a country</option>
-      {{!-- not showing countries --}}
-      {{#each mapCountry}}
-      <option value="{{this}}">{{this}}</option>
-      {{/each}}      
-      </select>
-      <br>
-      <button>Apply changes</button>
-    </form>
-  </div>
  
 
   <ul class = "list-group">
